@@ -18,20 +18,25 @@
             <thead>
                 <tr>
                     <th>
-                       Expense Name
+                        Expense Name
                     </th>
                     <th>
                         Amount
+                    </th>
+                    <th>
+                        Update/Delete
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var Expense in Model)
                 {
-                    <tr>
-                        <td width="30%">@Expense.ExpenseName</td>
-                        <td width="30%">@Expense.Amount</td>
-                    </tr>
+                <tr>
+                    <td width="30%">@Expense.ExpenseName</td>
+                    <td width="30%">@Expense.Amount</td>
+                    <td width="40"><a asp-controller="Expense" asp-action="Update" asp-route-Id="@Expense.Id" class="btn btn-primary m-1">Update</a>
+                                   <a asp-controller="Expense" asp-action="Delete" asp-route-Id="@Expense.Id" class="btn btn-danger m-1">Delete</a></td>
+                </tr>
                 }
             </tbody>
 
